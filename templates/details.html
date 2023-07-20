@@ -1,0 +1,232 @@
+{% extends "base_main.html" %}
+
+{% block title %}MyCam - Detail{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block header %}
+<div class="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
+    <div class="main-menu">
+        <nav id="mobile-menu">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li><a href="{{ url_for('item.explore') }}">Explore</a></li>
+                <li><a href="{{ url_for('item.about') }}">About</a></li>
+                <li></li>
+                <li><a href="{{ url_for('item.public_post') }}">Post</a></li>
+                <li class="has-dropdown">
+                    <a href="{{ url_for('user.my_info') }}">My</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('item.my_post') }}">My Post</a></li>
+                        <li><a href="{{ url_for('item.collections') }}">My Collection</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block body %}
+<!-- bg shape area start -->
+<div class="bg-shape">
+    <img src="/static/img/shape/shape-1.png" alt="background">
+</div>
+<!-- bg shape area end -->
+
+<!-- page title area -->
+<section class="page__title-area  pt-85">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="page__title-content mb-50">
+                    <div class="postbox__meta d-flex">
+                        <div class="postbox__tag-2">
+                            <a href="/category/{{ post.category }}">{{ post.category }}</a>
+                        </div>
+                    </div>
+                    <h2 class="page__title">{{ post.title }}</h2>
+                    <div class="postbox__author-2 mt-20">
+                        <ul class="d-flex align-items-center">
+                            <li>
+                                <h6><a>{{ post.author.username }}</a></h6>
+                                <span>Author</span>
+                            </li>
+                            <li>
+                                <h6>{{ post.create_time }}</h6>
+                                <span>Published</span>
+                            </li>
+                            <li class="d-none d-sm-block">
+                                <h6>Join the Conversation </h6>
+                                <span>{{ post.comments|length }} comments</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="postbox__tag postbox__tag-3 d-sm-flex mb-10 mt-20">
+                        <a href="{{ url_for('item.like', post_id=post.id) }}">Like It</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- page title end -->
+
+<!-- postbox area start -->
+<section class="postbox__area pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-8 col-xl-8 col-lg-8">
+                <div class="postbox__wrapper">
+                    <div class="postbox__thumb postbox__thumb-2 fix w-img mb-30">
+                        <a><img src="/static/post_img/post_{{ post.id }}.png" alt="{{ post.title }}"></a>
+                    </div>
+                    <div class="postbox__details mb-30">
+                        <p>This is take in <span class="highlight"><a>{{ post.place }}</a></span> when
+                            <span class="highlight"><a>{{ post.time }}</a></span></p>
+                    </div>
+                    <div class="postbox__quote-2 mb-50">
+                        <blockquote>
+                            <h4>“ {{ post. description }}</h4>
+                            <span>{{ post.author.username }}</span>
+                        </blockquote>
+                    </div>
+                    <div class="postbox__tag postbox__tag-3 d-sm-flex mb-25">
+                        <h5>Tagged with:</h5>
+                        <a href="/category/{{ post.category }}">{{ post.category }}</a>
+                    </div>
+                    <div class="latest-comments mb-55">
+                        <h3>{{ post.comments|length }} Comments</h3>
+                        <ul>
+                            {% for comment in post.comments %}
+                            <li>
+                                <div class="comments-box grey-bg-2">
+                                    <div class="comments-info d-flex">
+                                        <div class="avatar-name">
+                                            <h5>{{ comment.author.username }}</h5>
+                                            <span class="post-meta">{{ comment.create_time }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="comments-text ml-65">
+                                        <p>{{ comment.content }}</p>
+                                    </div>
+                                    <div class="postbox__tag postbox__tag-3 d-sm-flex mt-25">
+                                        <a href="/{{ post.id }}/delete/comment/{{ comment.id }}">Delete</a>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="comment__wrapper p-relative white-bg">
+                        <div class="comment__shape">
+                            <img class="circle" src="/static/img/icon/sign/circle.png" alt="">
+                            <img class="zigzag" src="/static/img/icon/sign/zigzag.png" alt="">
+                            <img class="dot" src="/static/img/icon/sign/dot.png" alt="">
+                        </div>
+                        <h3>Post a comment</h3>
+                        <div class="comment__form mt-35">
+                            <form action="{{ url_for('item.public_comment') }}" method="POST">
+                                <div class="row">
+                                    <div class="col-xxl-12">
+                                        <div class="comment__input-wrapper mb-25">
+                                            <h5>Message</h5>
+                                            <div class="comment__input textarea form-group">
+                                                <input type="hidden" name="post_id" value="{{ post.id }}">
+                                                <textarea name="content" class="form-control"
+                                                          placeholder="Add your comment here"></textarea>
+                                                <i class="fal fa-comment"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-12">
+                                        <button type="submit" class="m-btn m-btn-4"><span></span> submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xxl-4 col-xl-4 col-lg-4">
+                <div class="blog__sidebar-wrapper  ml-30">
+                    <div class="blog__sidebar mb-30">
+                        <div class="sidebar__widget mb-30">
+                            <div class="sidebar__widget-content">
+                                <div class="sidebar__search-wrapper">
+                                    <form method="GET" action="{{ url_for('item.search') }}">
+                                        <input class="form-control" name="search" type="search"
+                                               placeholder="Search ...">
+                                        <button type="submit"><i class="fal fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar__widget mb-30">
+                            <div class="sidebar__widget-title">
+                                <h3>Spreading Posts</h3>
+                            </div>
+                            <div class="sidebar__widget-content">
+                                <div class="rc__post-wrapper">
+                                    {% for spread_post in spread_posts %}
+                                        {% if spread_post.popular == "pop" %}
+                                            <div class="rc__post d-flex align-items-center">
+                                                <div class="rc__thumb mr-15">
+                                                    <a href="{{ url_for('item.post_detail', post_id=spread_post.id) }}">
+                                                        <img src="/static/post_img/post_{{ spread_post.id }}.png"
+                                                             height="80" width="80" alt="{{ spread_post.title }}"></a>
+                                                </div>
+                                                <div class="rc__content">
+                                                    <div class="rc__meta">
+                                                        <span>{{ spread_post.time }}</span>
+                                                    </div>
+                                                    <h6 class="rc__title"><a href="{{ url_for('item.post_detail',
+                                                    post_id=spread_post.id) }}">{{ spread_post.title }}</a></h6>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar__widget mb-30">
+                            <div class="sidebar__widget-title">
+                                <h3>Categories</h3>
+                            </div>
+                            <div class="sidebar__widget-content">
+                                <div class="sidebar__catagory">
+                                    <ul>
+                                        <li><a href="/category/Animals">
+                                            Animals ({{ animals_posts|length }})</a></li>
+                                        <li><a href="/category/Architecture">
+                                            Architecture ({{ architecture_posts|length }})</a></li>
+                                        <li><a href="/category/Nature">
+                                            Nature ({{ nature_posts|length }})</a></li>
+                                        <li><a href="/category/Humanity">
+                                            Humanity ({{ humanity_posts|length }})</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar__banner" data-background="/static/img/banner/sidebar-banner.jpg">
+                        <h4 class="sidebar__banner-title">Welcome to<br>Our My Cam</h4>
+                        <a href="{{ url_for('item.public_post') }}" class="m-btn m-btn-white"> <span></span> post your
+                            life</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- postbox area end -->
+{% endblock %}

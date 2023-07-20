@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseDbTool">
+    <option name="sources">
+      <map>
+        <entry key="database.sqlite">
+          <value>
+            <DataConfigSourceDto>
+              <option name="comment" value="" />
+              <option name="dataBaseType" value="Sqlite" />
+              <option name="database" value="main" />
+              <option name="databaseName" value="database.sqlite" />
+              <option name="databaseSslConfig">
+                <DatabaseSslConfig>
+                  <option name="caFile" value="" />
+                  <option name="clientCertificateFile" value="" />
+                  <option name="clientKeyFile" value="" />
+                  <option name="clientKeyPassword" value="" />
+                  <option name="sslMode" value="REQUIRE" />
+                </DatabaseSslConfig>
+              </option>
+              <option name="databaseVersion">
+                <NameVersion>
+                  <option name="majorVersion" value="3" />
+                  <option name="minorVersion" value="36" />
+                  <option name="name" value="SQLite" />
+                  <option name="version" value="3.36.0" />
+                </NameVersion>
+              </option>
+              <option name="dbFile" value="$PROJECT_DIR$/database.sqlite" />
+              <option name="driverCombos" value="thin" />
+              <option name="driverType" value="SQLite" />
+              <option name="host" value="localhost" />
+              <option name="jarUrl" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.36.0.3/sqlite-jdbc-3.36.0.3.jar" />
+              <option name="myUniqueId" value="752982e6-2d73-4c14-8db1-544febed0344" />
+              <option name="port" value="3306" />
+              <option name="schemaSourceDto">
+                <SchemaSourceDto>
+                  <option name="name" value="main" />
+                  <option name="tableSources">
+                    <list>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="version_num" />
+                              <option name="pk" value="true" />
+                              <option name="tableName" value="alembic_version" />
+                              <option name="typeName" value="VARCHAR(32)" />
+                              <option name="unique" value="true" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="Sqlite" />
+                        <option name="keys">
+                          <list>
+                            <ColumnIndexInfo>
+                              <option name="collation" value="A" />
+                              <option name="columnName" value="version_num" />
+                              <option name="indexName" value="sqlite_autoindex_alembic_version_1" />
+                              <option name="tableName" value="alembic_version" />
+                            </ColumnIndexInfo>
+                          </list>
+                        </option>
+                        <option name="schema" value="main" />
+                        <option name="tableName" value="alembic_version" />
+                        <option name="tableType" value="table" />
+                      </TableSourceDto>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="id" />
+                              <option name="pk" value="true" />
+                              <option name="tableName" value="email_captcha" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="email" />
+                              <option name="tableName" value="email_captcha" />
+                              <option name="typeName" value="VARCHAR(100)" />
+                              <option name="unique" value="true" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="verification_code" />
+                              <option name="tableName" value="email_captcha" />
+                              <option name="typeName" value="VARCHAR(10)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="create_time" />
+                              <option name="tableName" value="email_captcha" />
+                              <option name="typeName" value="DATE" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="Sqlite" />
+                        <option name="keys">
+                          <list>
+                            <ColumnIndexInfo>
+                              <option name="collation" value="A" />
+                              <option name="columnName" value="email" />
+                              <option name="indexName" value="sqlite_autoindex_email_captcha_1" />
+                              <option name="tableName" value="email_captcha" />
+                            </ColumnIndexInfo>
+                          </list>
+                        </option>
+                        <option name="schema" value="main" />
+                        <option name="tableName" value="email_captcha" />
+                        <option name="tableType" value="table" />
+                      </TableSourceDto>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="id" />
+                              <option name="pk" value="true" />
+                              <option name="tableName" value="user" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="username" />
+                              <option name="tableName" value="user" />
+                              <option name="typeName" value="VARCHAR(200)" />
+                              <option name="unique" value="true" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="email" />
+                              <option name="tableName" value="user" />
+                              <option name="typeName" value="VARCHAR(100)" />
+                              <option name="unique" value="true" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="verification_code" />
+                              <option name="tableName" value="user" />
+                              <option name="typeName" value="VARCHAR(100)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="password" />
+                              <option name="tableName" value="user" />
+                              <option name="typeName" value="VARCHAR(400)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="available_time" />
+                              <option name="tableName" value="user" />
+                              <option name="typeName" value="DATE" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="Sqlite" />
+                        <option name="keys">
+                          <list>
+                            <ColumnIndexInfo>
+                              <option name="collation" value="A" />
+                              <option name="columnName" value="username" />
+                              <option name="indexName" value="sqlite_autoindex_user_2" />
+                              <option name="tableName" value="user" />
+                            </ColumnIndexInfo>
+                            <ColumnIndexInfo>
+                              <option name="collation" value="A" />
+                              <option name="columnName" value="email" />
+                              <option name="indexName" value="sqlite_autoindex_user_1" />
+                              <option name="tableName" value="user" />
+                            </ColumnIndexInfo>
+                          </list>
+                        </option>
+                        <option name="schema" value="main" />
+                        <option name="tableName" value="user" />
+                        <option name="tableType" value="table" />
+                      </TableSourceDto>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="id" />
+                              <option name="pk" value="true" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="title" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="VARCHAR(200)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="pic" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="VARCHAR(20000)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="category" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="VARCHAR(200)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="place" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="VARCHAR(100)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="time" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="VARCHAR(100)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="popular" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="VARCHAR(100)" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="description" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="TEXT" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="create_time" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="DATE" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="author_id" />
+                              <option name="tableName" value="post" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="Sqlite" />
+                        <option name="schema" value="main" />
+                        <option name="tableName" value="post" />
+                        <option name="tableType" value="table" />
+                      </TableSourceDto>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="id" />
+                              <option name="pk" value="true" />
+                              <option name="tableName" value="collection" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="post_id" />
+                              <option name="tableName" value="collection" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="author_id" />
+                              <option name="tableName" value="collection" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="Sqlite" />
+                        <option name="schema" value="main" />
+                        <option name="tableName" value="collection" />
+                        <option name="tableType" value="table" />
+                      </TableSourceDto>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="id" />
+                              <option name="pk" value="true" />
+                              <option name="tableName" value="comment" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="content" />
+                              <option name="tableName" value="comment" />
+                              <option name="typeName" value="TEXT" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="create_time" />
+                              <option name="tableName" value="comment" />
+                              <option name="typeName" value="DATE" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="post_id" />
+                              <option name="tableName" value="comment" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="author_id" />
+                              <option name="tableName" value="comment" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="Sqlite" />
+                        <option name="schema" value="main" />
+                        <option name="tableName" value="comment" />
+                        <option name="tableType" value="table" />
+                      </TableSourceDto>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="type" />
+                              <option name="tableName" value="sqlite_master" />
+                              <option name="typeName" value="text" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="name" />
+                              <option name="tableName" value="sqlite_master" />
+                              <option name="typeName" value="text" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="tbl_name" />
+                              <option name="tableName" value="sqlite_master" />
+                              <option name="typeName" value="text" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="rootpage" />
+                              <option name="tableName" value="sqlite_master" />
+                              <option name="typeName" value="int" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnName" value="sql" />
+                              <option name="tableName" value="sqlite_master" />
+                              <option name="typeName" value="text" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="Sqlite" />
+                        <option name="schema" value="main" />
+                        <option name="tableName" value="sqlite_master" />
+                        <option name="tableType" value="table" />
+                      </TableSourceDto>
+                    </list>
+                  </option>
+                </SchemaSourceDto>
+              </option>
+              <option name="sid" value="" />
+              <option name="url" value="jdbc:sqlite:/Users/pengchenchen/repo/web_cwk2/database.sqlite" />
+              <option name="userName" value="" />
+              <option name="driverVersion">
+                <NameVersion>
+                  <option name="majorVersion" value="3" />
+                  <option name="minorVersion" value="36" />
+                  <option name="name" value="SQLite JDBC" />
+                  <option name="version" value="3.36.0.3" />
+                </NameVersion>
+              </option>
+            </DataConfigSourceDto>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

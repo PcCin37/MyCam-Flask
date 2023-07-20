@@ -1,0 +1,1 @@
+alert("Change password successful!");

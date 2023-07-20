@@ -1,0 +1,105 @@
+﻿{% extends "base_main.html" %}
+
+{% block title %}MyCam - About{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block header %}
+<div class="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
+    <div class="main-menu">
+        <nav id="mobile-menu">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li><a href="{{ url_for('item.explore') }}">Explore</a></li>
+                <li class="active"><a href="{{ url_for('item.explore') }}">About</a></li>
+                <li></li>
+                <li><a href="{{ url_for('item.public_post') }}">Post</a></li>
+                <li class="has-dropdown">
+                    <a href="{{ url_for('user.my_info') }}">My</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('item.my_post') }}">My Post</a></li>
+                        <li><a href="{{ url_for('item.collections') }}">My Collection</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+<!-- bg shape area start -->
+<div class="bg-shape">
+    <img src="/static/img/shape/shape-1.png" alt="">
+</div>
+<!-- bg shape area end -->
+
+
+<!-- about area start -->
+<section class="about__area pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1">
+                <div class="about__wrapper">
+                    <span class="about__sub-title">About My Cam</span>
+                    <h3 class="about__title">We're enabling <br> Everyone to post your life.</h3>
+                    <div class="about__thumb w-img wow fadeInUp" data-wow-delay=".3s">
+                        <img src="../static/img/about/about.jpg" alt="a photo taken by the designer,
+                        it is about the sea and sunset.">
+                    </div>
+                    <div class="about__count pt-50 pb-15 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="row">
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                <div class="about__count-item text-center launche mb-30">
+                                    <p>POST AMOUNT</p>
+                                    <h4><span class="counter">{{ posts|length }}</span></h4>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                <div class="about__count-item text-center community mb-30">
+                                    <p>COMMUNITY OF</p>
+                                    <h4><span class="counter">{{ users|length }}</span>+</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about__content">
+                        <p class="about__text">My Cam provides users with a platform to publish their
+                            photography posts. Users can publish their own photographic posts on the platform
+                            and collect others' posts. In the platform community, users can also comment and
+                            discuss posts. Come and join us!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about area end -->
+
+<!-- cta area start -->
+<section class="cta__area pb-60 mt-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-6 offset-xxl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="section__title-wrapper text-center mb-45 wow fadeInUp" data-wow-delay=".3s">
+                    <h2 class="section__title">Join The Community</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-6 offset-xxl-3">
+                <div class="cta__content text-center wow fadeInUp" data-wow-delay=".5s">
+                    <a href="{{ url_for('user.register') }}" class="m-btn m-btn-border-2 cta__btn active">
+                        <span></span> Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cta area end -->
+
+{% endblock %}

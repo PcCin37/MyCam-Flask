@@ -1,0 +1,109 @@
+{% extends "base_main.html" %}
+
+{% block title %}MyCam - My Information{% endblock %}
+
+{% block head %}
+    {% if change %}
+        {% if change == 1 %}
+            <script src="{{ url_for('static', filename='js/alert_2.js') }}"></script>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block header %}
+<div class="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
+    <div class="main-menu">
+        <nav id="mobile-menu">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li><a href="{{ url_for('item.explore') }}">Explore</a></li>
+                <li><a href="{{ url_for('item.about') }}">About</a></li>
+                <li></li>
+                <li><a href="{{ url_for('item.public_post') }}">Post</a></li>
+                <li class="has-dropdown active">
+                    <a href="{{ url_for('user.my_info') }}">My</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('item.my_post') }}">My Post</a></li>
+                        <li><a href="{{ url_for('item.collections') }}">My Collection</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block body %}
+<!-- bg shape area start -->
+<div class="bg-shape">
+    <img src="/static/img/shape/shape-1.png" alt="">
+</div>
+<!-- bg shape area end -->
+
+<!-- sign in area start -->
+<section class="signup__area po-rel-z1 pt-100 pb-145">
+    <div class="sign__shape">
+        <img class="man-1" src="/static/img/icon/sign/man-1.png" alt="">
+        <img class="man-2" src="/static/img/icon/sign/man-2.png" alt="">
+        <img class="circle" src="/static/img/icon/sign/circle.png" alt="">
+        <img class="zigzag" src="/static/img/icon/sign/zigzag.png" alt="">
+        <img class="dot" src="/static/img/icon/sign/dot.png" alt="">
+        <img class="bg" src="/static/img/icon/sign/sign-up.png" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
+                <div class="page__title-wrapper text-center mb-55">
+                    <h2 class="page__title-2">Hello, {{ user.username }} <br> Your Login Information</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+                <div class="sign__wrapper white-bg">
+                    <div class="sign__form">
+                        <form action="{{ url_for('user.edit_user', user_id=user.id) }}" method="POST">
+                            <div class="sign__input-wrapper mb-25 form-group">
+                                <h5>Your Username</h5>
+                                <div class="sign__input">
+                                    <span>--&nbsp;&nbsp;&nbsp;&nbsp;{{ user.username }}</span>
+                                </div>
+                            </div>
+                            <div class="sign__input-wrapper mb-25 form-group">
+                                <h5>Your Email</h5>
+                                <div class="sign__input">
+                                    <span>--&nbsp;&nbsp;&nbsp;&nbsp;{{ user.email }}</span>
+                                </div>
+                            </div>
+                            <div class="sign__input-wrapper mb-25 form-group">
+                                <h5>You join us in</h5>
+                                <div class="sign__input">
+                                    <span>--&nbsp;&nbsp;&nbsp;&nbsp;{{ user.available_time }}</span>
+                                </div>
+                            </div>
+                            <div class="sign__input-wrapper mb-25 form-group">
+                                <h5>Your post amount</h5>
+                                <div class="sign__input">
+                                    <span>--&nbsp;&nbsp;&nbsp;&nbsp;{{ user.posts|length }}</span>
+                                </div>
+                            </div>
+                            <div class="sign__action d-sm-flex justify-content-between mb-30"></div>
+                            <button class="m-btn m-btn-4 w-100"><span></span> Edit</button>
+                        </form>
+                        <div class="sign__action d-sm-flex justify-content-between mb-30"></div>
+                        <a class="m-btn m-btn-4 w-100"
+                           href="{{ url_for('user.edit_password', user_id=user.id) }}">
+                            <span></span> Change Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- sign in area end -->
+
+{% endblock %}
+

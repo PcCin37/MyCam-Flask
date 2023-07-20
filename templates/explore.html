@@ -1,0 +1,131 @@
+{% extends "base_main.html" %}
+
+{% block title %}MyCam - Explore{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block header %}
+<div class="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
+    <div class="main-menu">
+        <nav id="mobile-menu">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li class="active"><a href="{{ url_for('item.explore') }}">Explore</a></li>
+                <li><a href="{{ url_for('item.about') }}">About</a></li>
+                <li></li>
+                <li><a href="{{ url_for('item.public_post') }}">Post</a></li>
+                <li class="has-dropdown">
+                    <a href="{{ url_for('user.my_info') }}">My</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('item.my_post') }}">My Post</a></li>
+                        <li><a href="{{ url_for('item.collections') }}">My Collection</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+<!-- bg shape area start -->
+<div class="bg-shape">
+    <img src="/static/img/shape/shape-1.png" alt="">
+</div>
+<!-- bg shape area end -->
+
+<!-- product area start -->
+<section class="product__area po-rel-z1 pt-100 pb-115 grey-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 order-lg-first order-last">
+                <div class="product__sidebar mr-30">
+                    <div class="product__sidebar-widget  white-bg mb-30">
+                        <div class="sidebar__widget mb-20">
+                            <div class="sidebar__widget-head d-flex align-items-center justify-content-between">
+                                <div class="sidebar__widget mb-30">
+                                    <div class="sidebar__widget-title">
+                                        <h3>Categories</h3>
+                                    </div>
+                                    <div class="sidebar__widget-content">
+                                        <div class="sidebar__catagory">
+                                            <ul>
+                                                <li><a href="/category/Animals">
+                                                    Animals ({{ animals_posts|length }})</a></li>
+                                                <li><a href="/category/Architecture">
+                                                    Architecture ({{ architecture_posts|length }})</a></li>
+                                                <li><a href="/category/Nature">
+                                                    Nature ({{ nature_posts|length }})</a></li>
+                                                <li><a href="/category/Humanity">
+                                                    Humanity ({{ humanity_posts|length }})</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar__banner" data-background="/static/img/banner/sidebar-banner.jpg">
+                        <h4 class="sidebar__banner-title">Welcome to <br>Our My Cam</h4>
+                        <a href="{{ url_for('item.public_post') }}" class="m-btn m-btn-white">
+                            <span></span> Post your Life
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-8 col-xl-8 col-lg-8">
+                <div class="row">
+
+                    {% for post in posts %}
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                        <div class="product__item white-bg mb-30 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="product__thumb">
+                                <div class="product__thumb-inner fix w-img">
+                                    <a href="{{ url_for('item.post_detail', post_id=post.id) }}">
+                                        <img src="/static/post_img/post_{{ post.id }}.png" height="400"
+                                             alt="{{ post.title }}">
+                                    </a>
+                                </div>
+                                <div class="product__thumb-btn transition-3">
+                                    <a href="{{ url_for('item.like', post_id=post.id) }}" class="m-btn m-btn-6 mb-15">
+                                        Like It
+                                    </a>
+                                    <a href="{{ url_for('item.post_detail', post_id=post.id) }}"
+                                       target="_blank" class="m-btn m-btn-7">
+                                        Preview
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product__content">
+                                <div class="product__meta mb-10 d-flex justify-content-between align-items-center">
+                                    <div class="product__tag">
+                                        <a href="/category/{{ post.category }}">{{ post.category }}</a>
+                                    </div>
+                                    <div class="product__price">
+                                        <span>{{ post.author.username }}</span>
+                                    </div>
+                                </div>
+                                <h3 class="product__title">
+                                    <a href="{{ url_for('item.post_detail', post_id=post.id) }}">{{ post.title }}</a>
+                                </h3>
+                                <p class="product__author">Create on <a style="font-weight:bold;">{{ post.create_time
+                                    }}</a>
+                                    <br>Take in <a style="font-weight:bold;">{{ post.place }}</a></p>
+                                <p class="product__author">{{ post.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- product area end -->
+
+{% endblock %}

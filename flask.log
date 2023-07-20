@@ -1,0 +1,43 @@
+[2023-06-11 12:18:17,320][item.py:26][INFO][13062873088] - Visit 'Main' page successful.
+[2023-06-11 14:02:05,703][item.py:133][INFO][13062873088] - Visit post 1 detail successful.
+[2023-06-11 14:29:39,728][item.py:38][INFO][13062873088] - Visit 'Explore' page successful.
+[2023-06-11 14:29:47,970][item.py:48][INFO][13062873088] - Visit 'About' page successful.
+[2023-06-11 14:34:05,758][item.py:38][INFO][13062873088] - Visit 'Explore' page successful.
+[2023-06-11 14:34:08,039][item.py:38][INFO][13062873088] - Visit 'Explore' page successful.
+[2023-06-11 14:34:13,507][item.py:48][INFO][13062873088] - Visit 'About' page successful.
+[2023-06-11 14:36:04,348][item.py:71][WARNING][13062873088] - Wrong methods 'GET'!
+[2023-06-11 14:36:09,085][user.py:89][INFO][13062873088] - Visit 'My' page successful.
+[2023-06-11 14:37:20,479][item.py:26][INFO][13062873088] - Visit 'Main' page successful.
+[2023-06-11 14:37:34,452][item.py:38][INFO][13062873088] - Visit 'Explore' page successful.
+[2023-06-11 14:37:35,457][user.py:89][INFO][13062873088] - Visit 'My' page successful.
+[2023-06-11 14:37:41,263][item.py:26][INFO][13062873088] - Visit 'Main' page successful.
+[2023-06-11 14:38:27,012][user.py:89][INFO][13062873088] - Visit 'My' page successful.
+[2023-06-11 14:41:58,081][item.py:48][INFO][13062873088] - Visit 'About' page successful.
+[2023-06-11 14:41:58,970][item.py:71][WARNING][13062873088] - Wrong methods 'GET'!
+[2023-06-11 14:52:36,903][item.py:26][INFO][13062873088] - Visit 'Main' page successful.
+[2023-06-11 14:53:10,946][item.py:71][WARNING][13062873088] - Wrong methods 'GET'!
+[2023-06-11 15:54:30,485][item.py:26][INFO][13062873088] - Visit 'Main' page successful.
+[2023-06-11 17:33:55,415][item.py:26][INFO][13062873088] - Visit 'Main' page successful.
+[2023-06-11 21:49:57,070][item.py:26][INFO][13008609280] - Visit 'Main' page successful.
+[2023-06-11 22:28:15,867][item.py:38][INFO][13008609280] - Visit 'Explore' page successful.
+[2023-06-11 22:29:18,927][item.py:48][INFO][13008609280] - Visit 'About' page successful.
+[2023-06-11 22:29:57,927][item.py:120][WARNING][13008609280] - Warning: No login info, can not visit 'Post' page!
+[2023-06-11 22:29:57,943][user.py:30][WARNING][13008609280] - Wrong methods 'GET'!
+[2023-06-11 22:30:07,695][user.py:81][ERROR][13008609280] - Error: Login form input invalid!
+[2023-06-11 22:30:21,075][user.py:58][INFO][13008609280] - Validate login form input.
+[2023-06-11 22:30:21,228][user.py:65][INFO][13008609280] - CHEN416 Login successful.
+[2023-06-11 22:30:21,281][item.py:26][INFO][13008609280] - Visit 'Main' page successful.
+[2023-06-11 22:30:23,379][item.py:71][WARNING][13008609280] - Wrong methods 'GET'!
+[2023-06-11 22:30:59,936][user.py:89][INFO][13008609280] - Visit 'My' page successful.
+[2023-06-11 22:31:18,400][user.py:137][ERROR][13008609280] - Error: Edit failed! Something Wrong!
+[2023-06-11 22:31:31,820][user.py:149][WARNING][13008609280] - Wrong methods 'GET'!
+[2023-06-11 22:31:35,547][user.py:89][INFO][13008609280] - Visit 'My' page successful.
+[2023-06-11 22:31:37,173][item.py:235][INFO][13008609280] - Visit 'My Collection' page successful.
+[2023-06-11 22:31:55,642][item.py:26][INFO][13008609280] - Visit 'Main' page successful.
+[2023-06-11 22:31:57,401][user.py:264][INFO][13008609280] - CHEN416 logout successful.
+[2023-06-11 22:31:57,409][user.py:30][WARNING][13008609280] - Wrong methods 'GET'!
+[2023-06-11 22:32:10,987][user.py:190][WARNING][13008609280] - Wrong methods 'GET'!
+[2023-06-11 22:42:16,628][item.py:48][INFO][13008609280] - Visit 'About' page successful.
+[2023-06-11 22:42:17,734][item.py:38][INFO][13008609280] - Visit 'Explore' page successful.
+[2023-06-11 22:42:25,266][item.py:133][INFO][13008609280] - Visit post 5 detail successful.
+[2023-06-11 22:49:31,526][item.py:133][INFO][13008609280] - Visit post 4 detail successful.

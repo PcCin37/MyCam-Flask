@@ -1,0 +1,185 @@
+{% extends "base_main.html" %}
+
+{% block title %}MyCam - Post{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block header %}
+<div class="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
+    <div class="main-menu">
+        <nav id="mobile-menu">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li><a href="{{ url_for('item.explore') }}">Explore</a></li>
+                <li><a href="{{ url_for('item.about') }}">About</a></li>
+                <li></li>
+                <li class="active"><a href="{{ url_for('item.public_post') }}">Post</a></li>
+                <li class="has-dropdown">
+                    <a href="{{ url_for('user.my_info') }}">My</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('item.my_post') }}">My Post</a></li>
+                        <li><a href="{{ url_for('item.collections') }}">My Collection</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+<section class="postbox__area pt-60 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12 col-xl-12 col-lg-12">
+                <div class="postbox__wrapper">
+                    <div class="comment__wrapper p-relative white-bg">
+                        <div class="comment__shape">
+                            <img class="circle" src="/static/img/icon/sign/circle.png" alt="">
+                            <img class="zigzag" src="/static/img/icon/sign/zigzag.png" alt="">
+                            <img class="dot" src="/static/img/icon/sign/dot.png" alt="">
+                        </div>
+                        <h3>Post Your Cam</h3>
+                        <div class="comment__form mt-35">
+                            <form action="{{ url_for('item.public_post') }}" method="POST"
+                                  enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                        <div class="comment__input-wrapper mb-25">
+                                            <h5>Title</h5>
+                                            <div class="comment__input">
+                                                <input type="text" name="title" class="form-control"
+                                                       placeholder="title">
+                                                <i class="fal fa-envelope"></i>
+                                            </div>
+                                            {% if form %}
+                                            {% for error in form.title.errors %}
+                                            <div class="comment__input"><span>{{ error }}</span></div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                        <div class="comment__input-wrapper mb-25">
+                                            <h5>Photo</h5>
+                                            <div class="comment__input">
+                                                <input type="button" value="Choose your photo" name="photo"
+                                                       onclick="javascript:$('input[name=\'file\']').click();" />
+                                                <input name="fileName" readonly />
+                                                <input type="file" name="file" accept="image/*" style="display: none;"
+                                                       onchange="javascript:
+                                                       $('input[name=\'fileName\']').val(this.files[0].name);" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                        <div class="comment__input-wrapper mb-25">
+                                            <h5>Place</h5>
+                                            <div class="comment__input">
+                                                <input type="text" name="place" class="form-control"
+                                                       placeholder="where you take the cam">
+                                                <i class="fal fa-cloud"></i>
+                                            </div>
+                                            {% if form %}
+                                            {% for error in form.place.errors %}
+                                            <div class="comment__input"><span>{{ error }}</span></div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                        <div class="comment__input-wrapper mb-25">
+                                            <h5>Time</h5>
+                                            <div class="comment__input">
+                                                <input type="text" name="time" class="form-control"
+                                                       placeholder="when you take the cam">
+                                                <i class="fal fa-calendar"></i>
+                                            </div>
+                                            {% if form %}
+                                            {% for error in form.time.errors %}
+                                            <div class="comment__input"><span>{{ error }}</span></div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                        <div class="comment__input-wrapper mb-25">
+                                            <h5>Category</h5>
+                                            <div class="comment__input">
+                                                <select name="category" class="custom-select">
+                                                    <option selected>Choose...</option>
+                                                    <option value="Animals">Animals</option>
+                                                    <option value="Architecture">Architecture</option>
+                                                    <option value="Nature">Nature</option>
+                                                    <option value="Humanity">Humanity</option>
+                                                </select>
+                                                <i class="fal fa-code"></i>
+                                            </div>
+                                            {% if form %}
+                                            {% for error in form.category.errors %}
+                                            <div class="comment__input"><span>{{ error }}</span></div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                        <div class="comment__input-wrapper mb-25">
+                                            <h5>Popular</h5>
+                                            <div class="comment__input">
+                                                <select name="popular" class="custom-select">
+                                                    <option selected>Do you want to spread your post</option>
+                                                    <option value="pop">Yes</option>
+                                                    <option value="unpop">No</option>
+                                                </select>
+                                                <i class="fal fa-user"></i>
+                                            </div>
+                                            {% if form %}
+                                            {% for error in form.popular.errors %}
+                                            <div class="comment__input"><span>{{ error }}</span></div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-12">
+                                        <div class="comment__input-wrapper mb-25">
+                                            <h5>Description</h5>
+                                            <div class="comment__input textarea">
+                                                <textarea name="description" class="form-control"
+                                                    placeholder="Tell us about your cam."></textarea>
+                                                <i class="fal fa-comment"></i>
+                                            </div>
+                                            {% if form %}
+                                            {% for error in form.description.errors %}
+                                            <div class="comment__input"><span>{{ error }}</span></div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-12">
+                                        <button type="submit" class="m-btn m-btn-4"><span></span> submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

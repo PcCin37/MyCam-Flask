@@ -1,0 +1,242 @@
+﻿{% extends "base_main.html" %}
+
+{% block title %}MyCam{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block header %}
+<div class="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
+    <div class="main-menu">
+        <nav id="mobile-menu">
+            <ul>
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li><a href="{{ url_for('item.explore') }}">Explore</a></li>
+                <li><a href="{{ url_for('item.about') }}">About</a></li>
+                <li></li>
+                <li><a href="{{ url_for('item.public_post') }}">Post</a></li>
+                <li class="has-dropdown">
+                    <a href="{{ url_for('user.my_info') }}">My</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('item.my_post') }}">My Post</a></li>
+                        <li><a href="{{ url_for('item.collections') }}">My Collection</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block body %}
+<!-- top area start -->
+<section class="hero__area hero__height grey-bg-3 d-flex align-items-center">
+    <div class="hero__shape">
+        <img class="circle" src="/static/img/icon/hero/hero-circle.png" alt="circle">
+        <img class="circle-2" src="/static/img/icon/hero/hero-circle-2.png" alt="circle">
+        <img class="square" src="/static/img/icon/hero/hero-square.png" alt="circle">
+        <img class="square-2" src="/static/img/icon/hero/hero-square-2.png" alt="circle">
+        <img class="dot" src="/static/img/icon/hero/hero-dot.png" alt="circle">
+        <img class="triangle" src="/static/img/icon/hero/hero-triangle.png" alt="circle">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-8 col-sm-8">
+                <div class="hero__content">
+                    <h2 class="hero__title">
+                        <span>Welcome</span>
+                        <br>MyCam Websites
+                        Collection.
+                    </h2>
+                    <p>Various pics are here for you.</p>
+                    <div class="hero__search">
+                        <form method="GET" action="{{ url_for('item.search') }}">
+                            <div class="hero__search-inner d-xl-flex">
+                                <div class="hero__search-input">
+                                    <span><i class="far fa-search"></i></span>
+                                    <input name="search" class="form-control" type="search"
+                                           placeholder="Search for what you want">
+                                </div>
+                                <button type="submit" class="m-btn ml-20"><span></span> search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- top area end -->
+
+<!-- category area start -->
+<section class="category__area pt-105 pb-135">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="section__title-wrapper text-center mb-60">
+                    <h2 class="section__title">Browse <br> Popular Categories</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-6">
+                <div class="category__item transition-3 text-center white-bg mb-30 wow fadeInUp"
+                     data-wow-delay=".3s">
+                    <div class="category__icon mb-25">
+                        <a href="/category/Animals"><img src="/static/img/icon/catagory/cat-1.png"
+                                                         alt="category-Animals"></a>
+                    </div>
+                    <div class="category__content">
+                        <h3 class="category__title">
+                            <a href="/category/Animals">Animals</a>
+                        </h3>
+                        <a href="/category/Animals" class="link-btn">
+                            <i class="far fa-long-arrow-right"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-6">
+                <div class="category__item transition-3 text-center white-bg mb-30 wow fadeInUp" data-wow-delay=".5s">
+                    <div class="category__icon mb-25">
+                        <a href="/category/Architecture"><img src="/static/img/icon/catagory/cat-2.png"
+                                                              alt="category-Architecture"></a>
+                    </div>
+                    <div class="category__content">
+                        <h3 class="category__title">
+                            <a href="/category/Architecture">Architecture</a>
+                        </h3>
+                        <a href="/category/Architecture" class="link-btn">
+                            <i class="far fa-long-arrow-right"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-6">
+                <div class="category__item transition-3 text-center white-bg mb-30 wow fadeInUp" data-wow-delay=".7s">
+                    <div class="category__icon mb-25">
+                        <a href="/category/Nature"><img src="/static/img/icon/catagory/cat-3.png"
+                                                        alt="category-Nature"></a>
+                    </div>
+                    <div class="category__content">
+                        <h3 class="category__title">
+                            <a href="/category/Nature">Nature</a>
+                        </h3>
+                        <a href="/category/Nature" class="link-btn">
+                            <i class="far fa-long-arrow-right"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-6">
+                <div class="category__item transition-3 text-center white-bg mb-30 wow fadeInUp" data-wow-delay=".9s">
+                    <div class="category__icon mb-25">
+                        <a href="/category/Humanity"><img src="/static/img/icon/catagory/cat-4.png"
+                                                          alt="category-Humanity"></a>
+                    </div>
+                    <div class="category__content">
+                        <h3 class="category__title">
+                            <a href="/category/Humanity">Humanity</a>
+                        </h3>
+                        <a href="/category/Humanity" class="link-btn">
+                            <i class="far fa-long-arrow-right"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="category__more mt-30 text-center">
+                    <a href="{{ url_for('item.explore') }}" class="m-btn m-btn-2"> <span></span> View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- category area end -->
+
+<!-- trending area start -->
+<section class="trending__area pt-110 pb-110 grey-bg">
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-xxl-6 col-xl-6 col-lg col-md-8">
+                <div class="section__title-wrapper mb-50">
+                    <h2 class="section__title">Spreading <br> Pics </h2>
+                </div>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg col-md-4">
+                <div class="trending__more d-flex justify-content-md-end  mb-50">
+                    <a href="{{ url_for('item.explore') }}" class="m-btn m-btn-border"><span></span>Explore All</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for post in posts %}
+            {% if post.popular == "pop" %}
+            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
+                <div class="trending__item d-sm-flex white-bg mb-30 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="trending__thumb mr-25">
+                        <div class="trending__thumb-inner fix">
+                            <a href="{{ url_for('item.post_detail', post_id=post.id) }}">
+                                <img src="/static/post_img/post_{{ post.id }}.png" width="120" height="150"
+                                     alt="{{ post.title }}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="trending__content">
+                        <h3 class="trending__title"><a href="{{ url_for('item.post_detail', post_id=post.id) }}">{{
+                            post.title }}</a></h3>
+                        <p>{{ post.description }}</p>
+                        <div class="trending__meta d-flex justify-content-between">
+                            <div class="trending__tag">
+                                <a href="/category/{{ post.category }}">{{ post.category }}</a>
+                            </div>
+                            <div class="trending__price">
+                                <br><span>{{ post.author.username }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- trending area end -->
+
+
+<!-- sign up area start -->
+{% if not user %}
+<section class="cta__area pt-100 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-6 offset-xxl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="section__title-wrapper text-center mb-45">
+                    <h2 class="section__title wow fadeInUp" data-wow-delay=".3s">
+                        Start your Enjoyment <span>Today</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-6 offset-xxl-3">
+                <div class="cta__content text-center wow fadeInUp" data-wow-delay=".7s">
+                    <a href="{{ url_for('user.register') }}" class="m-btn m-btn-border-2 cta__btn active">
+                        <span></span> Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- sign up area end -->
+{% endblock %}
